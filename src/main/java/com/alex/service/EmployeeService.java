@@ -10,8 +10,12 @@ import java.util.Collection;
 @Service
 public class EmployeeService {
 
-    @Autowired
     private EmployeeDAO employeeDAO;
+
+    @Autowired
+    public EmployeeService(EmployeeDAO employeeDAO) {
+        this.employeeDAO = employeeDAO;
+    }
 
     public Collection<Employee> getAllStudents(){
         return this.employeeDAO.getAllEmployees();

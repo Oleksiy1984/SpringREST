@@ -37,13 +37,13 @@ public class EmployeeController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus( HttpStatus.OK )
-    public int removeEmployeeById(@PathVariable("id") int id){
-        return employeeService.deleteEmployeeById(id);
+    public String removeEmployeeById(@PathVariable("id") int id){
+        return employeeService.deleteEmployeeById(id)+" row affected";
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus( HttpStatus.CREATED )
-    public int insertStudent(@RequestBody Employee employee){
-        return employeeService.insertEmployee(employee);
+    public String insertStudent(@RequestBody Employee employee){
+        return employeeService.insertEmployee(employee)+" row affected";
     }
 }

@@ -14,8 +14,12 @@ import java.util.List;
 @Repository
 public class PostgreSQLEmployeeDAOImpl implements EmployeeDAO {
 
-    @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    public PostgreSQLEmployeeDAOImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     private static class EmployeeRowMapper implements RowMapper<Employee> {
 
